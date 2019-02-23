@@ -1,11 +1,11 @@
 import React, { Component, lazy, Suspense } from 'react'
-const LazyLoadImage = lazy(() => import('./LazyLoadImage'))
+const Image = lazy(() => import('./Image'))
 
 class CarouselImage extends Component {
   render() {
     return (
       <Suspense fallback={<div>Loading...</div>}>
-        <LazyLoadImage props={this.props} />
+        <Image props={this.props} />
       </Suspense>
     )
   }

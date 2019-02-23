@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 
-const CarouselImage = styled.div`
+const ImageWrapper = styled.div`
   margin: 0.5em 0.5em 0;
   text-align: left;
 `
@@ -26,12 +26,12 @@ export default ({ props }) => {
   const { image, index } = props
   const imageNumber = index + 1
   return (
-    <CarouselImage tabIndex="0">
+    <ImageWrapper tabIndex="0">
       <Image src={image.imageUrl} alt={image.tags} title={image.tags} />
       <ImageTitle>
         Image {imageNumber} title
         <Likes> User: {image.user} |  Likes: {image.likes}  </Likes>
       </ImageTitle>
-    </CarouselImage>
+    </ImageWrapper>
   )
 }
