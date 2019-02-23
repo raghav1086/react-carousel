@@ -3,7 +3,7 @@
 This project is to build a build a mobile-first carousel widget that cycles through images via the `prev` and `next` buttons.
 
 ## Image API Details
-API url `https://pixabay.com/api/`
+API url: `https://pixabay.com/api/`
 API key: `9656065-a4094594c34f9ac14c7fc4c39`
 Documentation: `https://pixabay.com/api/docs/`
 Example search: `https://pixabay.com/api/?key=9656065-a4094594c34f9ac14c7fc4c39&q=beautiful+landscape&image_type=photo`
