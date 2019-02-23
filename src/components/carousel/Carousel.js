@@ -50,22 +50,22 @@ class Carousel extends Component {
   }
 
   slideImages() {
-    const { currentIndex, scrollValue } = this.state
-    this.setState({ scrollValue: currentIndex * 330 })
-    this.carouselRef.current.scrollLeft = scrollValue
+    this.setState(prevState => ({ scrollValue: prevState.currentIndex * 330 }))
+    this.carouselRef.current.scrollLeft = this.state.scrollValue - this.state.center * 0.5
   }
 
   handlePrev() {
     const { currentIndex } = this.state
-    let newIndex = (currentIndex === 0) ? currentIndex : currentIndex - 1
+    let index = this.state.currentIndex > 0 ? -1 : 0
+    let newIndex = currentIndex + index
     this.setState({ currentIndex: newIndex })
-    console.log(currentIndex)
     this.slideImages()
   }
 
   handleNext() {
     const { currentIndex, images } = this.state
-    let newIndex = (currentIndex === images.length) ? currentIndex : currentIndex + 1
+    let index = currentIndex < images.length - 1 ? 1 : 0
+    let newIndex = currentIndex + index
     this.setState({ currentIndex: newIndex })
     this.slideImages()
   }

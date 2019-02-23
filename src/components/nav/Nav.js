@@ -8,14 +8,16 @@ const NavWapper = styled.div`
   margin: 20px auto;
   width: 100px;
 
+  .sm {
+    display: none;
+  }
+
   @media (max-width: 768px) {
     .lg {
       display: none;
     }
-  }
-  @media (min-width: 768px) {
     .sm {
-      display: none;
+      display: block;
     }
   }
 `
