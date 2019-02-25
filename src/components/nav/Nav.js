@@ -34,10 +34,11 @@ const NavButton = styled.button`
 const NavButtonMobile = styled.div`
   color: white;
   background: #FFF;
-  border-radius: 100px;
+  border-radius: ${props => props.prev ? "0 100px 100px 0" : "100px 0  0 100px"};
   height: 80px;
   width: 80px;
   cursor: pointer;
+  opacity: 0.75;
   padding: 10px;
   position: absolute;
   left: ${props => props.prev ? "-20px" : ""};
