@@ -42,12 +42,19 @@ class Carousel extends Component {
     this.handlePrev = this.handlePrev.bind(this)
     this.handleNext = this.handleNext.bind(this)
     this.handleKeydown = this.handleKeydown.bind(this)
+    this.slideCarousel = this.slideCarousel.bind(this)
     this.carouselRef = React.createRef()
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    prevState.images = nextProps.images
-    return prevState || null
+  componentWillReceiveProps(nextProps, prevState) {
+    if (nextProps.images !== prevState.images) {
+      const middleIndex = nextProps.images.length * 0.5
+      this.setState({
+        images: nextProps.images,
+        currentIndex: middleIndex
+      })
+      this.slideCarousel(middleIndex)
+    }
   }
 
   componentDidMount() {
