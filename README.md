@@ -30,13 +30,22 @@ Relevant properties in the request result are: <br>
 
 ## Font Details
 
-`Ropa Sans` font is used available from google fonts => `[https://fonts.googleapis.com/css?family=Ropa+Sans](https://fonts.googleapis.com/css?family=Ropa+Sans)`
+`Ropa Sans` font is used available from google fonts => [https://fonts.googleapis.com/css?family=Ropa+Sans](https://fonts.googleapis.com/css?family=Ropa+Sans)
 
 
 ## Styled Components
 
-`styled-components` library used to style the components in this project.
-Library URL: `https://www.styled-components.com/` <br>
+`styled-components` library used to style the components in this project. <br>
+Library URL: `https://www.styled-components.com/`
+
+
+## Up and Running Project
+
+#### After cloning the repository, install dependencies:
+```sh
+cd react-carousel
+npm install
+```
 
 
 ## Available Scripts
