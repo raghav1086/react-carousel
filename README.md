@@ -1,25 +1,23 @@
 ## React Carousel
 
-This project is to build a build a mobile-first carousel widget that cycles through images via the `prev` and `next` buttons.
+This project is to build a mobile-first carousel widget that cycles through images via the `prev` and `next` buttons and also has navigation accessibility using `tab` and `arrow` keys available on keyboard. Active/Selected image keeps centered align regardless of screen sizes.
+
 
 ## Implementation
 
-1. ReactJS is used for implementation.
-2. Carousel with a list of images fetched using `axios` from pixabay.
-3. `styled-components` used for styling componennt.
-4. Service structure setup for remote calls. 
-5. Accessibility compliant.
-6. All major modern browsers supported.
-7. Simple test case to test if App is rendering correctly.
+1. React library is used to implement this project.
+2. `styled-components` used for styling component.
+3. Carousel with a list of images fetched using `axios` from pixabay.
+4. Service structure setup for API requests.
+5. Accessibility compliant. Carousel can be navigated using `next`, `back`, `up`, `down` and `tab` key combinations.
+6. Carousel is fully responsive and supported on all major modern browsers.
+7. Added `Config.js` file to maintain global/server side configurations and this file supposed to pick values from `config.env` file which usually resides on root directory.
+8. Basic Test cases added to test App, Carousel, Nav buttons and Service.
 
-## Todos
-
-* The 'active' carousel item should always be centred in its container.
-* Include more test cases to test carousel funtionality.
-* Implementation for smaller viewports should be more correct.
 
 ## Image API Details
-API url: `https://pixabay.com/api/` <br>
+
+API url: `https://pixabay.com/api/` <br >
 API key: `9656065-a4094594c34f9ac14c7fc4c39` <br>
 Documentation: `https://pixabay.com/api/docs/` <br>
 Example search: `https://pixabay.com/api/?key=9656065-a4094594c34f9ac14c7fc4c39&q=beautiful+landscape&image_type=photo` <br>
@@ -28,6 +26,18 @@ Relevant properties in the request result are: <br>
 `hits[0].webformatURL` <br>
 `hits[0].user` <br>
 `hits[0].likes` <br>
+
+
+## Font Details
+
+`Ropa Sans` font is used available from google fonts => `[https://fonts.googleapis.com/css?family=Ropa+Sans](https://fonts.googleapis.com/css?family=Ropa+Sans)`
+
+
+## Styled Components
+
+`styled-components` library used to style the components in this project.
+Library URL: `https://www.styled-components.com/` <br>
+
 
 ## Available Scripts
 

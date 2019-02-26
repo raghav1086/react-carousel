@@ -13,7 +13,7 @@ const ImageWrapper = styled.div`
 `
 const ImageTitle = styled.div`
   color: #036898;
-  font-size: 1.5em;
+  font-size: 20px;
   padding: 10px 0 0;
   text-align: left;
 `
@@ -23,8 +23,8 @@ const Image = styled.img`
 `
 const Likes = styled.span`
   color: grey;
-  font-size: 0.5em;
-  padding: 0.5em;
+  font-size: 10px;
+  padding: 0.7em 0;
   float: right;
 `
 
