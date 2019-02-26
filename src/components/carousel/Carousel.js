@@ -13,12 +13,23 @@ const Title = styled.h1`
   margin: 0.4em 1em;
   text-align: left;
 `
-const CarouselWrapper = styled.div`
-  background: #FFF;
-  display: flex;
-  flex-direction: row;
-  padding: 1em;
+const CarouselContainer = styled.div`
+  background-color: #FFF;
+  margin: 30px 0;
   overflow: hidden;
+  width: 100%;
+`
+const ActiveContainer = styled.div`
+  position: relative;
+  margin: 0 auto;
+  max-width: 280px;
+  height: 235px;
+`
+
+const CarouselWrapper = styled.div`
+  display: flex;
+  position: absolute;
+  transition: all 0.2s ease-in-out;
 `
 
 class Carousel extends Component {
@@ -26,13 +37,11 @@ class Carousel extends Component {
     super(props)
     this.state = {
       images: [],
-      currentIndex: 0,
-      center: 0,
-      scrollValue: 0
+      currentIndex: 0
     }
     this.handlePrev = this.handlePrev.bind(this)
     this.handleNext = this.handleNext.bind(this)
-    this.getCenter = this.getCenter.bind(this)
+    this.handleKeydown = this.handleKeydown.bind(this)
     this.carouselRef = React.createRef()
   }
 
@@ -42,16 +51,24 @@ class Carousel extends Component {
   }
 
   componentDidMount() {
-    this.setState({ center: this.getCenter() })
+    document.addEventListener("keydown", this.handleKeydown)
   }
 
-  getCenter() {
-    return this.carouselRef.current.getBoundingClientRect().width * 0.5
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKeydown)
   }
 
-  slideImages() {
-    this.setState(prevState => ({ scrollValue: prevState.currentIndex * 330 }))
-    this.carouselRef.current.scrollLeft = this.state.scrollValue - this.state.center * 0.5
+  handleKeydown(event) {
+    const keyCode = event.keyCode
+    if (keyCode === 9 || keyCode === 38 || keyCode === 39) {
+      this.handleNext()
+    } else if (keyCode === 37 || keyCode === 40) {
+      this.handlePrev()
+    }
+  }
+
+  slideCarousel(index) {
+    return this.carouselRef.current.style.transform = "translateX(-" + index * 5 + "%)"
   }
 
   handlePrev() {
@@ -59,7 +76,7 @@ class Carousel extends Component {
     let index = this.state.currentIndex > 0 ? -1 : 0
     let newIndex = currentIndex + index
     this.setState({ currentIndex: newIndex })
-    this.slideImages()
+    this.slideCarousel(newIndex)
   }
 
   handleNext() {
@@ -67,7 +84,7 @@ class Carousel extends Component {
     let index = currentIndex < images.length - 1 ? 1 : 0
     let newIndex = currentIndex + index
     this.setState({ currentIndex: newIndex })
-    this.slideImages()
+    this.slideCarousel(newIndex)
   }
 
   renderImages() {
@@ -81,10 +98,14 @@ class Carousel extends Component {
   render() {
     return (
       <Section>
-        <Title>Carousel Test</Title>
-        <CarouselWrapper ref={this.carouselRef}>
-          { this.renderImages() }
-        </CarouselWrapper>
+        <Title>Carousel</Title>
+        <CarouselContainer className="carousel-container">
+          <ActiveContainer className="active-container">
+            <CarouselWrapper className="carousel-wrapper" ref={this.carouselRef}>
+              { this.renderImages() }
+            </CarouselWrapper>
+          </ActiveContainer>
+        </CarouselContainer>
         <Nav
           handlePrev={this.handlePrev}
           handleNext={this.handleNext}

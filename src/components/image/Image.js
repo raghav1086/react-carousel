@@ -18,8 +18,8 @@ const ImageTitle = styled.div`
   text-align: left;
 `
 const Image = styled.img`
-  width: 300px;
-  height: 170px;
+  width: 250px;
+  height: 140px;
 `
 const Likes = styled.span`
   color: grey;
